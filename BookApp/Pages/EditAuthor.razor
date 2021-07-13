@@ -1,0 +1,84 @@
+﻿@page "/editAuthor/{id:int}"
+@inject IAuthorService authorService
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+<h2>
+   Edit Author
+</h2>
+
+<form>
+   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+         <tr>
+            <td>
+               <label for="FName" class="control-label">
+                  First Name
+               </label>
+            </td>
+            <td>
+               <input for="FName" class="form-control"
+                      @bind="@author.FName" />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label for="LName" class="control-label">
+                  Last Name
+               </label>
+            </td>
+            <td>
+               <input for="LName" class="form-control"
+                      @bind="@author.LName" />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label for="Phone" class="control-label">
+                  Phone
+               </label>
+            </td>
+            <td>
+               <input for="Phone" class="form-control"
+                      @bind="@author.Phone" />
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td>
+               <br />
+               <button type="button" class="btn btn-primary"
+                       @onclick="() => UpdateAuthor()">
+                  &#8195;Save&#8195;
+               </button>&#8194;
+               <button type="button" class="btn btn-warning"
+                       @onclick="() => Cancel()">
+                  &#8194;&#8201;Cancel&#8201;&#8194;
+               </button>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</form>
+
+@code  {
+
+   [Parameter]
+   public int id { get; set; }
+
+   Author author = new Author();
+
+   protected override async Task OnInitializedAsync()
+   {
+      author = await authorService.ReadByPk(id);
+   }
+
+   protected async Task UpdateAuthor()
+   {
+      await authorService.Update(author);
+      navigationManager.NavigateTo("/listAuthor");
+   }
+
+   void Cancel()
+   {
+      navigationManager.NavigateTo("/listAuthor");
+   }
+}
