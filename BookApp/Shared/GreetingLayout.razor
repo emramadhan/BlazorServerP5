@@ -11,7 +11,7 @@
    protected override void OnInitialized()
    {
       int hour = DateTime.Today.Hour;
-      if (hour < 5 || hour > 17)
+      if (hour < 5 && hour > 17)
          time = "Evening";
       else if (hour < 12)
          time = "Morning";
