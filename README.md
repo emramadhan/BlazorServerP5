@@ -1,4 +1,4 @@
-# BlazorServeP-5
+# BlazorServerP-5
 Blazor Server and Blazor WebAssembly support page layout.
 There are three ways to apply a layout to pages.
 (1) Specifying a layout explicitly for an individual page.
