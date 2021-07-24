@@ -10,7 +10,7 @@
    private string time;
    protected override void OnInitialized()
    {
-      int hour = DateTime.Today.Hour;
+      int hour = DateTime.Now.Hour;
       if (hour < 5 && hour > 17)
          time = "Evening";
       else if (hour < 12)
