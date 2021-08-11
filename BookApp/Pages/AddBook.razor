@@ -84,7 +84,9 @@
             <td>
                <select for="Publisher" class="form-control" 
                        @bind="@book.PubId">
-                  <option value=0>[Select Publisher]</option>
+                  <option value=0 disabled selected hidden>
+                     [Select Publisher]
+                  </option>
                   @foreach (var publisher in publishers)
                   {
                      <option value="@publisher.Id">
