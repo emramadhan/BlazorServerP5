@@ -4,3 +4,5 @@ There are three ways to apply a layout to pages.
 (1) Specifying a layout explicitly for an individual page.
 (2) Specifying a default layout for all pages in an app.
 (3) Specifying the layout for all components in a folder and subfolders.
+
+https://medium.com/informatics/blazor-server-project-5-924279f6fc7f
