@@ -72,6 +72,9 @@
       if (isbnDummy > 0)
          navigationManager.NavigateTo("/editBook/" + isbnDummy);
       else
-         navigationManager.NavigateTo("/listPublisher");
+         if (isbnDummy == 0)
+            navigationManager.NavigateTo("/addBook");
+         else
+            navigationManager.NavigateTo("/listPublisher");
    }
 }
